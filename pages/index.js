@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
-import ProductList from '@/components/ProductList';
-import SearchForm from '@/components/SearchForm';
-import axios from '@/lib/axios';
-import styles from '@/styles/Home.module.css';
-import Head from 'next/head';
+import { useEffect, useState } from "react";
+import ProductList from "@/components/ProductList";
+import SearchForm from "@/components/SearchForm";
+import axios from "@/lib/axios";
+import styles from "@/styles/Home.module.css";
+import Head from "next/head";
 
 export async function getStaticProps() {
   const res = await axios.get("/products");
@@ -12,14 +12,11 @@ export async function getStaticProps() {
   return {
     props: {
       products,
-    }
-  }
-
+    },
+  };
 }
 
-export default function Home({products}) {
-
-
+export default function Home({ products }) {
   return (
     <>
       <Head>
@@ -28,5 +25,5 @@ export default function Home({products}) {
       <SearchForm />
       <ProductList className={styles.productList} products={products} />
     </>
-  )
+  );
 }
